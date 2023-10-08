@@ -23,5 +23,5 @@ TextStyle regular12_5 =
 TextStyle regular14 = regular12_5.copyWith(fontSize: 14);
 TextStyle semibold12_5 = regular12_5.copyWith(fontWeight: FontWeight.w600);
 TextStyle semibold14 = semibold12_5.copyWith(fontSize: 14, letterSpacing: 0.1);
-TextStyle bold16 = semibold14.copyWith(fontSize: 14, fontWeight: FontWeight.w700, letterSpacing: 0.1);
-TextStyle bold18 = bold16.copyWith(fontSize: 16, letterSpacing: -0.5);
+TextStyle bold16 = regular12_5.copyWith(fontSize: 16, fontWeight: FontWeight.w700, letterSpacing: 0.1);
+TextStyle bold18 = bold16.copyWith(fontSize: 18, letterSpacing: -0.5);
