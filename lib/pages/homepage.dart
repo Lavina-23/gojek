@@ -289,7 +289,28 @@ class HomePage extends StatelessWidget {
                 ],
               ),
             ),
-            
+            // Gopaylater
+            Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Image.asset('assets/images/gopaylater.png', height: 14, width: 98,),
+                      const SizedBox(
+                        height: 8,
+                      ),
+                      Text('Lebih hemat pake GoPayLater 🤩', style: bold16,),
+                      const SizedBox(
+                        height: 8,
+                      ),
+                      Text('Yuk, belanja di Tokopedia pake GoPay Later dan nikmatin cashback-nya~', style: regular14.copyWith(color: dark2),)
+                    ],
+                  ),
+                ),
+              ],
+            )
           ],
         ),
       ),
