@@ -40,7 +40,8 @@ class HomePage extends StatelessWidget {
                           Container(
                             width: 2,
                             height: 8,
-                            decoration: const BoxDecoration(color: Color(0xFFBBBBBB)),
+                            decoration:
+                                const BoxDecoration(color: Color(0xFFBBBBBB)),
                           ),
                           SizedBox(
                             height: 4,
@@ -69,7 +70,8 @@ class HomePage extends StatelessWidget {
                         Container(
                           width: 127,
                           height: 68,
-                          padding: EdgeInsets.symmetric(horizontal: 6, vertical: 8),
+                          padding:
+                              EdgeInsets.symmetric(horizontal: 6, vertical: 8),
                           decoration: BoxDecoration(
                             color: Colors.white,
                             borderRadius: BorderRadius.circular(8),
@@ -99,69 +101,143 @@ class HomePage extends StatelessWidget {
                       ],
                     ),
                     ...gopayIcons.map((icon) => Flexible(
-                      fit: FlexFit.tight,
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Container(
-                            width: 32,
-                            height: 32,
-                            decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(8),
-                            ),
-                            child: SvgPicture.asset('assets/icons/${icon.icon}.svg',
-                            color: blue1,
-                            ),
+                          fit: FlexFit.tight,
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Container(
+                                width: 32,
+                                height: 32,
+                                decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.circular(8),
+                                ),
+                                child: SvgPicture.asset(
+                                  'assets/icons/${icon.icon}.svg',
+                                  color: blue1,
+                                ),
+                              ),
+                              const SizedBox(
+                                height: 7,
+                              ),
+                              Text(
+                                icon.title,
+                                style: semibold14.copyWith(color: Colors.white),
+                              ),
+                            ],
                           ),
-                          const SizedBox(
-                            height: 7,
-                          ),
-                          Text (
-                            icon.title,
-                            style: semibold14.copyWith(color: Colors.white),
-                          ),
-                        ],
-                      ),
-                    ))
+                        ))
                   ],
                 ),
               ),
             ),
             // Icons Menu
             Padding(
-              padding: const EdgeInsets.only(top: 32, left: 27, right: 27, bottom: 19),
+              padding: const EdgeInsets.only(
+                  top: 32, left: 27, right: 27, bottom: 19),
               child: SizedBox(
                 height: 157,
                 child: GridView.count(
                   crossAxisCount: 4,
                   mainAxisSpacing: 8,
-                children: [
-                  ...menuIcons.map((icon) => Container(
-                    child: Column(
-                      children: [
-                        Container(
-                            width: 40,
+                  children: [
+                    ...menuIcons.map((icon) => Container(
+                          child: Column(
+                            children: [
+                              Container(
+                                width: 40,
+                                height: 40,
+                                decoration: BoxDecoration(
+                                  color: icon.icon == 'goclub'
+                                      ? Colors.white
+                                      : icon.color,
+                                  borderRadius: BorderRadius.circular(20),
+                                ),
+                                child: SvgPicture.asset(
+                                  'assets/icons/${icon.icon}.svg',
+                                  color: icon.icon == 'goclub'
+                                      ? icon.color
+                                      : icon.icon == 'other'
+                                          ? dark2
+                                          : Colors.white,
+                                ),
+                              ),
+                              const SizedBox(
+                                height: 9,
+                              ),
+                              Text(
+                                icon.title,
+                                style: regular12_5.copyWith(
+                                    color: Color(0xFF4A4A4A)),
+                              )
+                            ],
+                          ),
+                        ))
+                  ],
+                ),
+              ),
+            ),
+            // Goclub
+            Padding(
+              padding: const EdgeInsets.only(bottom: 16, left: 15, right: 15),
+              child: Container(
+                height: 65,
+                width: 345,
+                decoration: BoxDecoration(
+                    gradient: const LinearGradient(
+                        colors: [Color(0xFFEAF3F6), Color(0xFFFFFFFF)]),
+                    borderRadius: BorderRadius.circular(15),
+                    border: Border.all(color: Color(0xFFE8E8E8))),
+                child: Stack(
+                  children: [
+                    Positioned(
+                        top: 4,
+                        bottom: 4,
+                        left: 4,
+                        child: SvgPicture.asset('assets/icons/dots.svg')),
+                    Container(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 16, vertical: 12),
+                      child: Row(
+                        children: [
+                          SvgPicture.asset(
+                            'assets/icons/star.svg',
                             height: 40,
-                            decoration: BoxDecoration(
-                              color: icon.icon == 'goclub'? Colors.white : icon.color,
-                              borderRadius: BorderRadius.circular(20),
-                            ),
-                            child: SvgPicture.asset('assets/icons/${icon.icon}.svg',
-                            color: icon.icon == 'goclub'? icon.color : icon.icon == 'other'? dark2 : Colors.white,
+                          ),
+                          const SizedBox(
+                            width: 16,
+                          ),
+                          Flexible(
+                            fit: FlexFit.tight,
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  '117 XP lagi ada Harta Karun',
+                                  style: semibold14,
+                                ),
+                                const SizedBox(
+                                  height: 8,
+                                ),
+                                Container(
+                                  child: LinearProgressIndicator(
+                                    value: .8,
+                                    color: green1,
+                                    borderRadius: BorderRadius.circular(2),
+                                  ),
+                                ),
+                              ],
                             ),
                           ),
                           const SizedBox(
-                            height: 9,
+                            width: 24,
                           ),
-                          Text(
-                            icon.title,
-                            style: regular12_5.copyWith(color: Color(0xFF4A4A4A)),
-                          )
-                      ],
+                          SvgPicture.asset('assets/icons/left.svg', color: dark1, height: 24,),
+                        ],
+                      ),
                     ),
-                  ))
-                ],),
+                  ],
+                ),
               ),
             )
           ],
