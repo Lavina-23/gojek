@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:gojek/pages/homepage.dart';
-import 'package:gojek/pages/login.dart';
 import 'package:gojek/pages/loginform.dart';
 
 void main(List<String> args) {

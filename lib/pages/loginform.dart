@@ -121,17 +121,18 @@ class _LoginFormState extends State<LoginForm> {
                             SizedBox(
                               height: 50,
                               width: 250,
-                              child: ElevatedButton(
-                                style: ElevatedButton.styleFrom(
-                                  backgroundColor: green2,
-                                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(50)),
-                                ),
-                                key: const Key('submit'),
-                                onPressed: (){
-                                  Navigator.push(context, MaterialPageRoute(builder: (context) => const HomePage()));
-                                },
-                                child: const Text('Submit', style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700),
-                                ),
+                              child: ReactiveFormConsumer(
+                              builder: (context, form, child) {
+                                return ElevatedButton(
+                                  style: ElevatedButton.styleFrom(
+                                    backgroundColor: green2,
+                                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(50)),
+                                  ),
+                                  key: const Key('submit'),
+                                  onPressed: form.valid ? _onSubmit : null,
+                                  child: const Text('Submit', style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700),)
+                                );
+                              },
                             ),
                           ),
                           const SizedBox(
@@ -154,4 +155,7 @@ class _LoginFormState extends State<LoginForm> {
             )
           );
   }
+void _onSubmit(){
+  Navigator.of(context).push(MaterialPageRoute(builder: (context) => HomePage()));
+}
 }
