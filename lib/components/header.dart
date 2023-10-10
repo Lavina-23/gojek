@@ -26,7 +26,7 @@ class Header extends StatelessWidget {
             ...['Promo', 'Pesanan', 'Chat'].map((title) => Flexible(
               fit: FlexFit.loose,
               child: Padding(
-                padding : const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
+                padding : const EdgeInsets.symmetric(horizontal: 0, vertical: 12),
                 child: Center(
                   child: Text(
                     title,
