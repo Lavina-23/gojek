@@ -13,7 +13,7 @@ class LoginForm extends StatefulWidget {
 
 class _LoginFormState extends State<LoginForm> {
   final form = FormGroup({
-    'username': FormControl<String>(validators: [Validators.required]),
+    'email': FormControl<String>(validators: [Validators.required, Validators.email]),
     'password': FormControl<String>(validators: [Validators.required]),
   });
 
@@ -65,17 +65,18 @@ class _LoginFormState extends State<LoginForm> {
                       child: Column(
                         children: <Widget>[
                           ReactiveTextField(
-                            key: const Key('username'),
-                              formControlName: 'username',
+                            key: const Key('email'),
+                              formControlName: 'email',
                               decoration: InputDecoration(
                                 border: OutlineInputBorder(
                                   borderSide: const BorderSide(),
                                   borderRadius: BorderRadius.circular(50),
                                 ),
-                                labelText: 'Username',
+                                labelText: 'Email',
                               ),
                               validationMessages: {
-                                'required': (eror) =>'The username must not be empty',
+                                'required': (eror) =>'The email must not be empty',
+                                'email' : (eror) =>'The email value must be a valid email'
                               }
                           ),
                           const SizedBox(
